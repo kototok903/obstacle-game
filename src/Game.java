@@ -405,7 +405,7 @@ public class Game extends JPanel implements ActionListener, KeyListener {
     }
    
     /**
-     * The paint method does 3 things
+     * The paint method does 4 things
      * 1 - it draws a white background
      * 2 - it draws the player in blue
      * 3 - it draws the goal in green
@@ -449,7 +449,7 @@ public class Game extends JPanel implements ActionListener, KeyListener {
                     g.drawString("Obstacle", 50, 300);
                     g.setFont(fontMain.deriveFont(40f));
                     g.drawString("Press SPACE to Start", 50, 350);
-                    g.drawString("Pause � SPACE", 50, 400);
+                    g.drawString("Pause — SPACE", 50, 400);
                     break;
                 case 'w':
                     g.setFont(fontMain.deriveFont(80f));
