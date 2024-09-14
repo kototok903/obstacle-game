@@ -8,7 +8,7 @@ A simple game developed in Java using IntelliJ IDEA.
 - **Language:** Java
 - **JDK version:** 17
 - **IDE:** IntelliJ IDEA
-- **Packges:** Java Swing, Java AWT, Java IO, and Javax Sound
+- **Packages:** Java Swing, Java AWT, Java IO, and Javax Sound
 
 ## Usage
 ### To run the project:
