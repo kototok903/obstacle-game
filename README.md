@@ -6,7 +6,7 @@ A simple game developed in Java using IntelliJ IDEA.
 
 ## Technologies
 - **Language:** Java
-- **JDK version:** 17
+- **JDK version:** 17 (Oracle OpenJDK 17.0.6)
 - **IDE:** IntelliJ IDEA
 - **Packages:** Java Swing, Java AWT, Java IO, and Javax Sound
 
