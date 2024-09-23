@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea78d14c-5a9a-4961-9bb8-b2dbee55a0c7" name="Changes" comment="Fix readme&#10;Add JDK version">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ImageLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImageLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sound.java" afterDir="false" />
-    </list>
+    <list default="true" id="ea78d14c-5a9a-4961-9bb8-b2dbee55a0c7" name="Changes" comment="Fix fonts and sound, add arrows&#10;Add ARROW KEYS text in the menu" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,7 +113,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726350254979</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fix fonts and sound, add arrows&#10;Add ARROW KEYS text in the menu">
+      <option name="closed" value="true" />
+      <created>1727059075443</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727059075443</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -127,6 +130,7 @@
     <MESSAGE value="UI text bugfix" />
     <MESSAGE value="Fix typo in readme" />
     <MESSAGE value="Fix readme&#10;Add JDK version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix readme&#10;Add JDK version" />
+    <MESSAGE value="Fix fonts and sound, add arrows&#10;Add ARROW KEYS text in the menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix fonts and sound, add arrows&#10;Add ARROW KEYS text in the menu" />
   </component>
 </project>
