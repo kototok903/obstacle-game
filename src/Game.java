@@ -3,11 +3,9 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.InputStream;
 
 public class Game extends JPanel implements ActionListener, KeyListener {
-    static {
-        System.out.println(System.getProperty("user.dir"));
-    }
 
     // Constants
     private int gameWidth = 600; // game area
@@ -17,10 +15,10 @@ public class Game extends JPanel implements ActionListener, KeyListener {
     
     private Color pauseColor = new Color(0, 0, 0, 135);
     
-    private static Font fontMain = loadFont("assets/fonts/eurostile.TTF");
-    private static Font fontBold = loadFont("assets/fonts/EurostileExtendedBlack.ttf");
+    private static Font fontMain = loadFont("./assets/fonts/eurostile.TTF");
+    private static Font fontBold = loadFont("./assets/fonts/EurostileExtendedBlack.ttf");
     
-    private Sound bgMusic = new Sound("assets/sounds/music1.wav", 50);
+    private Sound bgMusic = new Sound("./assets/sounds/music1.wav", 50);
     
     // Game objects
     private Rectangle playerPart1 = new Rectangle(0, 0, 25, 35); 
@@ -449,7 +447,8 @@ public class Game extends JPanel implements ActionListener, KeyListener {
                     g.drawString("Obstacle", 50, 300);
                     g.setFont(fontMain.deriveFont(40f));
                     g.drawString("Press SPACE to Start", 50, 350);
-                    g.drawString("Pause — SPACE", 50, 400);
+                    g.drawString("Movement — ARROW KEYS", 50, 400);
+                    g.drawString("Pause — SPACE", 50, 450);
                     break;
                 case 'w':
                     g.setFont(fontMain.deriveFont(80f));
@@ -488,7 +487,7 @@ public class Game extends JPanel implements ActionListener, KeyListener {
                 Thread.sleep(2000);
             } 
             catch (Exception e) {
-                System.out.println("Sleep thread failed.");
+                System.err.println("Sleep thread failed.");
             }
             
             if (pauseState == 'w') {
@@ -515,7 +514,7 @@ public class Game extends JPanel implements ActionListener, KeyListener {
                 Thread.sleep(2000);
             } 
             catch (Exception e) {
-                System.out.println("Sleep thread failed.");
+                System.err.println("Sleep thread failed.");
             }
             
             if (pauseState == 'l') {
@@ -546,12 +545,12 @@ public class Game extends JPanel implements ActionListener, KeyListener {
                 Thread.sleep(delay);
             } 
             catch (Exception e) {
-                System.out.println("Dialog thread failed.");
+                System.err.println("Dialog thread failed.");
                 dialog.setVisible(false);
                 frame.requestFocus();
             }
             
-            // Close the pop up
+            // Close the pop-up
             dialog.setVisible(false);
             frame.requestFocus();
         });
@@ -564,12 +563,13 @@ public class Game extends JPanel implements ActionListener, KeyListener {
      */
     private static Font loadFont(String filepath) {
         try {
+            InputStream stream = Game.class.getResourceAsStream(filepath);
             return Font.createFont(
-                    Font.TRUETYPE_FONT, 
-                    new File(filepath));
+                    Font.TRUETYPE_FONT,
+                    stream);
         }
         catch (Exception e) {
-            System.out.println("Unable to load font:\n\t" + filepath);
+            System.err.println("Unable to load font:\n\t" + filepath);
         }
         return new Font("Courier", Font.PLAIN, 20); // default font
     }

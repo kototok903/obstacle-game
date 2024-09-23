@@ -11,12 +11,12 @@ import javax.sound.sampled.*;
 public class Sound {
     private Clip sound;
 
-    public Sound(String fileName) {
-        sound = loadSound(new File(fileName));
+    public Sound(String filepath) {
+        sound = loadSound(filepath);
     }
     
-    public Sound(String fileName, int vol) {
-        sound = loadSound(new File(fileName));
+    public Sound(String filepath, int vol) {
+        sound = loadSound(filepath);
         setVolume(vol);
     }
 
@@ -92,12 +92,13 @@ public class Sound {
     /**
      * Loads sound from file
      */
-    private Clip loadSound(File file) {
+    private Clip loadSound(String filepath) {
         Clip newClip;
 
         try {
-            AudioInputStream stream = AudioSystem.getAudioInputStream(file);
-            AudioFormat format = stream.getFormat();
+            InputStream istream = Sound.class.getResourceAsStream(filepath);
+            AudioInputStream aistream = AudioSystem.getAudioInputStream(istream);
+            AudioFormat format = aistream.getFormat();
 
             // we cannot play ALAW/ULAW, so we convert them to PCM
             if ((format.getEncoding() == AudioFormat.Encoding.ULAW) ||
@@ -110,16 +111,17 @@ public class Sound {
                                           format.getFrameSize() * 2,
                                           format.getFrameRate(),
                                           true);
-                stream = AudioSystem.getAudioInputStream(tmp, stream);
+                aistream = AudioSystem.getAudioInputStream(tmp, aistream);
                 format = tmp;
             }
             DataLine.Info info = new DataLine.Info(Clip.class, 
-                                           stream.getFormat(),
-                                           ((int) stream.getFrameLength() * format.getFrameSize()));
+                                           aistream.getFormat(),
+                                           ((int) aistream.getFrameLength() * format.getFrameSize()));
             newClip = (Clip) AudioSystem.getLine(info);
-            newClip.open(stream);
+            newClip.open(aistream);
             return newClip;
         } catch (Exception ex) {
+            System.err.println("Unable to load sound:\n\t" + filepath);
             return null;
         }
     }

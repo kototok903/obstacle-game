@@ -22,8 +22,7 @@ public class ImageLoader {
             return cache.get(path);
     
         try {
-            System.out.println(path);
-            //java.io.InputStream stream = ImageLoader.class.getResourceAsStream(path);
+            //System.out.println(path);
             java.io.InputStream stream = ImageLoader.class.getResourceAsStream(path);
             BufferedImage img = javax.imageio.ImageIO.read(stream);
             cache.put(path, img);
